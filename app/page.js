@@ -1,14 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "./components/ui/aurora-background";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
 import { HoverEffect } from "./components/ui/card-hover-effect.js";
+import { InfiniteMovingCards } from "./components/ui/infinite-moving-cards.js";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 import { keyFeatures } from "../data/keyFeatures.js";
 import { benefitsData } from "../data/benefitsData.js";
-import Image from "next/image";
+import { testimonials } from "../data/testimonials.js";
 
 export default function Home() {
   return (
@@ -117,8 +119,8 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
         variants={{
-          visible: { x: 0 },
-          hidden: { x: "100%" },
+          visible: { x: 0, opacity: 1 },
+          hidden: { x: "100%", opacity: 0 },
         }}
         id="key-features"
         className="max-w-7xl mx-auto"
@@ -149,8 +151,8 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
         variants={{
-          visible: { x: 0 },
-          hidden: { x: "-100%" },
+          visible: { x: 0, opacity: 1 },
+          hidden: { x: "-100%", opacity: 0 },
         }}
         id="benefits"
         className="max-w-7xl w-full mx-auto"
@@ -163,6 +165,26 @@ export default function Home() {
           <HoverEffect items={benefitsData} />
         </div>
       </motion.section>
+
+      <section className="max-w-7xl mx-auto">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          variants={{
+            visible: { x: 0 },
+            hidden: { x: "-100%" },
+          }}
+          className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-3 mx-6"
+        >
+          Testimonials
+        </motion.h2>
+
+        <div className="rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+          <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+        </div>
+      </section>
     </main>
   );
 }
