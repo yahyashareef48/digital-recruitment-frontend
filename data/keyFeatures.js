@@ -1,11 +1,9 @@
 import {
-  IconArrowWaveRightUp,
-  IconBoxAlignRightFilled,
-  IconBoxAlignTopLeft,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
+  IconUsersGroup,
+  IconClipboardData,
+  IconBubbleText,
+  IconGraph,
+  IconBrain,
 } from "@tabler/icons-react";
 
 const Skeleton = () => (
@@ -18,7 +16,7 @@ export const keyFeatures = [
     title: "Intelligent Candidate Matching",
     description:
       "Our advanced algorithms analyze resumes and job descriptions to automatically match candidates with the best-fit roles, reducing the time spent on initial screening.",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBrain className="h-4 w-4 text-neutral-500" />,
     image: "/keyFeatureImg1.png",
   },
   {
@@ -26,7 +24,7 @@ export const keyFeatures = [
     title: "Seamless Applicant Tracking",
     description:
       "Manage all stages of the recruitment process from a centralized dashboard, streamlining tasks such as scheduling interviews and collecting feedback.",
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    icon: <IconClipboardData className="h-4 w-4 text-neutral-500" />,
     image: "/keyFeatureImg2.png",
   },
   {
@@ -34,7 +32,7 @@ export const keyFeatures = [
     title: "Enhanced Collaboration Tools",
     description:
       "Foster collaboration between hiring managers, HR professionals, and other stakeholders with multi-user access and a comment and rating system for candidate evaluations.",
-    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+    icon: <IconBubbleText className="h-4 w-4 text-neutral-500" />,
     image: "/keyFeatureImg3.jpg",
   },
   {
@@ -42,7 +40,7 @@ export const keyFeatures = [
     title: "Comprehensive Reporting and Analytics",
     description:
       "Generate detailed reports on recruitment metrics, such as time-to-hire and source effectiveness, using predictive analytics to optimize workforce planning.",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    icon: <IconGraph className="h-4 w-4 text-neutral-500" />,
     image: "/keyFeatureImg4.jpg",
   },
   {
@@ -50,7 +48,7 @@ export const keyFeatures = [
     title: "Candidate Relationship Management",
     description:
       "Create personalized career pages to attract top talent and maintain engagement with potential candidates through automated messaging.",
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+    icon: <IconUsersGroup className="h-4 w-4 text-neutral-500" />,
     image: "/keyFeatureImg5.jpg",
   },
 ];

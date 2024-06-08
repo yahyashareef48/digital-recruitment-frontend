@@ -19,7 +19,7 @@ export const BentoGridItem = ({ className, title, description, image, icon, id }
     <div
       className={cn(
         `${
-          id === 4 && "md:max-h-[330px]"
+          id === 4 && "md:max-h-[400px]"
         } row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border justify-between flex flex-col space-y-4`,
         className
       )}
@@ -28,7 +28,7 @@ export const BentoGridItem = ({ className, title, description, image, icon, id }
         <Image
           src={image}
           className={`object-cover w-full rounded-lg ${
-            id === 4 ? "md:max-h-[180px]" : "aspect-video"
+            id === 4 ? "md:max-h-[205px]" : "aspect-video"
           }`}
           alt={title + "image"}
           width={400}

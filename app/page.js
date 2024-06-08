@@ -20,7 +20,7 @@ export default function Home() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="relative flex flex-col gap-4 items-center justify-center px-4"
+            className="relative flex flex-col gap-4 items-center justify-center px-4 max-w-7xl"
           >
             <h1 className="text-3xl md:text-7xl font-bold dark:text-white text-center">
               Seamless Digital Recruitment Solutions for MNCs
@@ -35,12 +35,12 @@ export default function Home() {
         </AuroraBackground>
       </section>
 
-      <section id="features" className="max-w-7xl mx-auto">
+      <section id="key-features" className="max-w-7xl mx-auto">
         <div className="mx-6">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left mb-6">
             Key Features
           </h2>
-          <BentoGrid className="max-w-4xl mx-auto">
+          <BentoGrid className="max-w-7xl mx-auto">
             {keyFeatures.map((item, i) => (
               <BentoGridItem
                 key={i}
@@ -53,6 +53,14 @@ export default function Home() {
               />
             ))}
           </BentoGrid>
+        </div>
+      </section>
+
+      <section id="benefits" className="max-w-7xl w-full mx-auto">
+        <div className="mx-6">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left mb-6">
+            Benefits
+          </h2>
         </div>
       </section>
     </main>
