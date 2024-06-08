@@ -41,7 +41,7 @@ export default function Home() {
             <h2 className="text-xs md:text-2xl font-medium dark:text-white text-center flex">
               <Image
                 src="/logo.png"
-                className="w-full mr-1 sm:w-[30px] sm:h-[30px] w-[15px] h-[15px]"
+                className="mr-1 sm:w-[30px] sm:h-[30px] w-[15px] h-[15px]"
                 width={20}
                 height={20}
                 alt="logo"
