@@ -8,10 +8,11 @@ import { HoverEffect } from "./components/ui/card-hover-effect.js";
 
 import { keyFeatures } from "../data/keyFeatures.js";
 import { benefitsData } from "../data/benefitsData.js";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col lg:gap-40 gap-20">
+    <main className="flex flex-col lg:gap-40 gap-20 overflow-x-hidden">
       <section id="above-the-fold">
         <AuroraBackground>
           <motion.div
@@ -37,7 +38,91 @@ export default function Home() {
         </AuroraBackground>
       </section>
 
-      <section id="key-features" className="max-w-7xl mx-auto">
+      <section id="about-us" className="max-w-7xl mx-auto">
+        <div className="mx-6">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            variants={{
+              visible: { x: 0 },
+              hidden: { x: "-100%" },
+            }}
+            className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-3"
+          >
+            About us
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <motion.h3
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                variants={{
+                  visible: { x: 0 },
+                  hidden: { x: "-100%" },
+                }}
+                className="text-xl lg:text-6xl font-bold dark:text-white"
+              >
+                TalentSync is Transforming Recruitment with Innovative Solutions Since 2020
+              </motion.h3>
+              <motion.p
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                variants={{
+                  visible: { x: 0 },
+                  hidden: { x: "-100%" },
+                }}
+                className="max-w-2xl text-base lg:text-xl lg:mt-8 mt-4 dark:text-neutral-200"
+              >
+                At TalentSync, we're dedicated to revolutionizing the recruitment process with
+                innovative digital solutions. Founded 2020, our mission is to empower organizations
+                to build exceptional teams faster and smarter. From intelligent candidate matching
+                to seamless applicant tracking, we're committed to delivering cutting-edge
+                technology and personalized support to our clients. Join us as we continue to
+                innovate and shape the future of recruitment.
+              </motion.p>
+            </div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0.5, scale: 0.5 },
+              }}
+            >
+              <Image
+                src="/about-us.jpg"
+                className="aspect-video md:aspect-auto object-cover object-center w-full h-full rounded"
+                width={500}
+                height={500}
+                alt="about us image"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        variants={{
+          visible: { x: 0 },
+          hidden: { x: "100%" },
+        }}
+        id="key-features"
+        className="max-w-7xl mx-auto"
+      >
         <div className="mx-6">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-4">
             Key Features
@@ -56,9 +141,20 @@ export default function Home() {
             ))}
           </BentoGrid>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="benefits" className="max-w-7xl w-full mx-auto">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        variants={{
+          visible: { x: 0 },
+          hidden: { x: "-100%" },
+        }}
+        id="benefits"
+        className="max-w-7xl w-full mx-auto"
+      >
         <div className="mx-6">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-3">
             Benefits
@@ -66,7 +162,7 @@ export default function Home() {
 
           <HoverEffect items={benefitsData} />
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }
