@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "./components/ui/aurora-background";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
+import { HoverEffect } from "./components/ui/card-hover-effect.js";
 
 import { keyFeatures } from "../data/keyFeatures.js";
+import { benefitsData } from "../data/benefitsData.js";
 
 export default function Home() {
   return (
-    <main className="flex flex-col lg:gap-14 gap-6">
+    <main className="flex flex-col lg:gap-40 gap-20">
       <section id="above-the-fold">
         <AuroraBackground>
           <motion.div
@@ -37,7 +39,7 @@ export default function Home() {
 
       <section id="key-features" className="max-w-7xl mx-auto">
         <div className="mx-6">
-          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left mb-6">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-4">
             Key Features
           </h2>
           <BentoGrid className="max-w-7xl mx-auto">
@@ -58,9 +60,11 @@ export default function Home() {
 
       <section id="benefits" className="max-w-7xl w-full mx-auto">
         <div className="mx-6">
-          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left mb-6">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-3">
             Benefits
           </h2>
+
+          <HoverEffect items={benefitsData} />
         </div>
       </section>
     </main>
