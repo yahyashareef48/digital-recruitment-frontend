@@ -114,7 +114,7 @@ export default function Home() {
       <motion.section
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
         variants={{
           visible: { x: 0 },
@@ -146,7 +146,7 @@ export default function Home() {
       <motion.section
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
         variants={{
           visible: { x: 0 },
