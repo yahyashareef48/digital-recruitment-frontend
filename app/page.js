@@ -31,7 +31,8 @@ export default function Home() {
             }}
             className="relative flex flex-col gap-4 items-center justify-center px-4 max-w-7xl"
           >
-            <h2 className="text-xs md:text-2xl font-medium dark:text-white text-center">
+            <h2 className="text-xs md:text-2xl font-medium dark:text-white text-center flex">
+              <Image src="/logo.png" className="w-full mr-1" width={20} height={20} alt="logo" />
               TalentSync
             </h2>
             <h1 className="text-3xl md:text-7xl font-bold dark:text-white text-center">
