@@ -1,3 +1,5 @@
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,12 +9,29 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      aurora: {
+        from: {
+          backgroundPosition: "50% 50%, 50% 50%",
+        },
+        to: {
+          backgroundPosition: "350% 50%, 350% 50%",
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
