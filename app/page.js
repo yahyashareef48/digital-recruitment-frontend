@@ -5,16 +5,20 @@ import { AuroraBackground } from "./components/ui/aurora-background";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
 import { HoverEffect } from "./components/ui/card-hover-effect.js";
 import { InfiniteMovingCards } from "./components/ui/infinite-moving-cards.js";
+import { FloatingNav } from "./components/ui/floating-navbar.js";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { keyFeatures } from "../data/keyFeatures.js";
 import { benefitsData } from "../data/benefitsData.js";
 import { testimonials } from "../data/testimonials.js";
+import { navItems } from "../data/navItems.js";
 
 export default function Home() {
   return (
     <main className="flex flex-col lg:gap-40 gap-20 overflow-x-hidden">
+      <FloatingNav navItems={navItems} />
+
       <section id="above-the-fold">
         <AuroraBackground>
           <motion.div
@@ -27,6 +31,9 @@ export default function Home() {
             }}
             className="relative flex flex-col gap-4 items-center justify-center px-4 max-w-7xl"
           >
+            <h2 className="text-xs md:text-2xl font-medium dark:text-white text-center">
+              TalentSync
+            </h2>
             <h1 className="text-3xl md:text-7xl font-bold dark:text-white text-center">
               Seamless Digital Recruitment Solutions for MNCs
             </h1>
