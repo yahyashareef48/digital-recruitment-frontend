@@ -14,45 +14,43 @@ const Skeleton = () => (
 
 export const keyFeatures = [
   {
-    title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
-    header: <Skeleton />,
+    id: 1,
+    title: "Intelligent Candidate Matching",
+    description:
+      "Our advanced algorithms analyze resumes and job descriptions to automatically match candidates with the best-fit roles, reducing the time spent on initial screening.",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    image: "/keyFeatureImg1.png",
   },
   {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
-    header: <Skeleton />,
+    id: 2,
+    title: "Seamless Applicant Tracking",
+    description:
+      "Manage all stages of the recruitment process from a centralized dashboard, streamlining tasks such as scheduling interviews and collecting feedback.",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    image: "/keyFeatureImg2.png",
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
-    header: <Skeleton />,
+    id: 3,
+    title: "Enhanced Collaboration Tools",
+    description:
+      "Foster collaboration between hiring managers, HR professionals, and other stakeholders with multi-user access and a comment and rating system for candidate evaluations.",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+    image: "/keyFeatureImg3.jpg",
   },
   {
-    title: "The Power of Communication",
-    description: "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    id: 4,
+    title: "Comprehensive Reporting and Analytics",
+    description:
+      "Generate detailed reports on recruitment metrics, such as time-to-hire and source effectiveness, using predictive analytics to optimize workforce planning.",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    image: "/keyFeatureImg4.jpg",
   },
   {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
-    header: <Skeleton />,
+    id: 5,
+    title: "Candidate Relationship Management",
+    description:
+      "Create personalized career pages to attract top talent and maintain engagement with potential candidates through automated messaging.",
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Joy of Creation",
-    description: "Experience the thrill of bringing ideas to life.",
-    header: <Skeleton />,
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "The Spirit of Adventure",
-    description: "Embark on exciting journeys and thrilling discoveries.",
-    header: <Skeleton />,
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+    image: "/keyFeatureImg5.jpg",
   },
 ];
