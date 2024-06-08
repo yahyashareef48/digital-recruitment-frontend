@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/utils/cn";
+import { cn } from "../../../utils/cn.js";
 import React, { ReactNode } from "react";
 
 export const AuroraBackground = ({ className, children, showRadialGradient = true, ...props }) => {
