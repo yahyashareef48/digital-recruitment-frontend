@@ -13,6 +13,13 @@ import { keyFeatures } from "../data/keyFeatures.js";
 import { benefitsData } from "../data/benefitsData.js";
 import { testimonials } from "../data/testimonials.js";
 import { navItems } from "../data/navItems.js";
+import Link from "next/link";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+} from "@tabler/icons-react";
 
 export default function Home() {
   return (
@@ -32,7 +39,13 @@ export default function Home() {
             className="relative flex flex-col gap-4 items-center justify-center px-4 max-w-7xl"
           >
             <h2 className="text-xs md:text-2xl font-medium dark:text-white text-center flex">
-              <Image src="/logo.png" className="w-full mr-1" width={20} height={20} alt="logo" />
+              <Image
+                src="/logo.png"
+                className="w-full mr-1 sm:w-[30px] sm:h-[30px] w-[15px] h-[15px]"
+                width={20}
+                height={20}
+                alt="logo"
+              />
               TalentSync
             </h2>
             <h1 className="text-3xl md:text-7xl font-bold dark:text-white text-center">
@@ -193,6 +206,38 @@ export default function Home() {
           <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
         </div>
       </section>
+
+      <footer className="w-full border-t border-[hsla(0,0%,100%,.1)] bg-[hsla(0,0%,10%,.1)] py-14 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+          <h2 className="max-h-8 text-2xl font-medium dark:text-white text-center flex max-w-[163px]">
+            <Image src="/logo.png" className="w-full mr-1" width={20} height={20} alt="logo" />
+            TalentSync
+          </h2>
+          <div className="sm:mt-0 mt-4">
+            <p>
+              Developed by{" "}
+              <Link href="https://x.com/shareef_yahya1" className="text-[rgb(14,165,233)]">
+                Yahya Shareef
+              </Link>
+            </p>
+
+            <div className="flex justify-between mt-4 px-4">
+              <Link href="https://x.com/shareef_yahya1">
+                <IconBrandX />
+              </Link>
+              <Link href="https://www.linkedin.com/in/yahiya-shareef/">
+                <IconBrandLinkedin />
+              </Link>
+              <Link href="https://www.instagram.com/yahya_shareef1/">
+                <IconBrandInstagram />
+              </Link>
+              <Link href="https://www.facebook.com/profile.php?id=61558586026851">
+                <IconBrandFacebook />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
