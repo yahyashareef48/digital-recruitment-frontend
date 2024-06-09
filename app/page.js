@@ -13,9 +13,6 @@ import { FloatingNav } from "./components/ui/floating-navbar.js";
 import { Boxes } from "./components/ui/background-boxes.js";
 import { motion } from "framer-motion";
 
-// UTILS
-import { cn } from "../utils/cn.js";
-
 // ICONS
 import {
   IconBrandFacebook,
