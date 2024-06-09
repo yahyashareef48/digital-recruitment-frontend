@@ -1,19 +1,22 @@
 "use client";
 
-import React from "react";
+// NEXT COMPONENTS
+import Image from "next/image";
+import Link from "next/link";
+
+// COMPONENTS
 import { AuroraBackground } from "./components/ui/aurora-background";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
 import { HoverEffect } from "./components/ui/card-hover-effect.js";
 import { InfiniteMovingCards } from "./components/ui/infinite-moving-cards.js";
 import { FloatingNav } from "./components/ui/floating-navbar.js";
+import { Boxes } from "./components/ui/background-boxes.js";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
-import { keyFeatures } from "../data/keyFeatures.js";
-import { benefitsData } from "../data/benefitsData.js";
-import { testimonials } from "../data/testimonials.js";
-import { navItems } from "../data/navItems.js";
-import Link from "next/link";
+// UTILS
+import { cn } from "../utils/cn.js";
+
+// ICONS
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -21,12 +24,18 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 
+// DATA
+import { keyFeatures } from "../data/keyFeatures.js";
+import { benefitsData } from "../data/benefitsData.js";
+import { testimonials } from "../data/testimonials.js";
+import { navItems } from "../data/navItems.js";
+
 export default function Home() {
   return (
-    <main className="flex flex-col lg:gap-40 gap-20 overflow-x-hidden">
+    <main className="flex flex-col overflow-x-hidden">
       <FloatingNav navItems={navItems} />
 
-      <section id="above-the-fold">
+      <section id="above-the-fold" className="lg:mb-20 mb-10">
         <AuroraBackground>
           <motion.div
             initial={{ opacity: 0.0, y: 40 }}
@@ -54,14 +63,17 @@ export default function Home() {
             <p className="font-extralight text-center text-base md:text-4xl dark:text-neutral-200 py-4">
               Streamline hiring, reduce time-to-hire, enhance productivity.
             </p>
-            <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-              Get Started
-            </button>
+            <Link
+              href="/recruit"
+              className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2"
+            >
+              Start Recruiting
+            </Link>
           </motion.div>
         </AuroraBackground>
       </section>
 
-      <section id="about-us" className="max-w-7xl mx-auto">
+      <section id="about-us" className="max-w-7xl mx-auto lg:my-20 my-10">
         <div className="mx-6">
           <motion.h2
             initial="hidden"
@@ -144,7 +156,7 @@ export default function Home() {
           hidden: { x: "100%", opacity: 0 },
         }}
         id="key-features"
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto lg:my-20 my-10"
       >
         <div className="mx-6">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-4">
@@ -176,7 +188,7 @@ export default function Home() {
           hidden: { x: "-100%", opacity: 0 },
         }}
         id="benefits"
-        className="max-w-7xl w-full mx-auto"
+        className="max-w-7xl w-full mx-auto lg:my-20 my-10"
       >
         <div className="mx-6">
           <h2 className="text-3xl font-medium tracking-tight text-white sm:text-left lg:mb-6 mb-3">
@@ -187,7 +199,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <section className="max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto lg:my-20 my-10">
         <motion.h2
           initial="hidden"
           whileInView="visible"
@@ -207,7 +219,31 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="w-full border-t border-[hsla(0,0%,100%,.1)] bg-[hsla(0,0%,10%,.1)] py-14 px-6">
+      <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+
+        <Boxes />
+        <div
+          className="relative z-10 flex items-center flex-col justify-center px-2 md:px-10 py-4"
+          style={{ pointerEvents: "none" }}
+        >
+          <h1 className="text-white text-2xl md:text-6xl font-bold text-center">
+            Start Recruiting with TalentSync
+          </h1>
+
+          <div className="mt-10">
+            <Link
+              href="/recruit"
+              class="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]"
+              style={{ pointerEvents: "auto" }}
+            >
+              Start Recruiting
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <footer className="w-full border-t border-[hsla(0,0%,100%,.1)] bg-[hsla(0,0%,10%,.4)] py-14 px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
           <h2 className="max-h-8 text-2xl font-medium dark:text-white text-center flex max-w-[163px]">
             <Image src="/logo.png" className="w-full mr-1" width={20} height={20} alt="logo" />
