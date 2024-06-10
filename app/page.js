@@ -29,7 +29,7 @@ import { navItems } from "../data/navItems.js";
 
 export default function Home() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <main className="overflow-x-hidden">
       <FloatingNav navItems={navItems} />
 
       <section id="above-the-fold" className="lg:mb-20 mb-10">

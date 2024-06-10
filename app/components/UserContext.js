@@ -33,7 +33,7 @@ export default AuthProvider;
 
 async function getUserData(setUserData, userData) {
   try {
-    const response = await fetch("http://localhost:4598/login", {
+    const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/login", {
       credentials: "include",
     });
 
