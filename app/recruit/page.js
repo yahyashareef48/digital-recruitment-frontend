@@ -23,7 +23,7 @@ export default function Recruit() {
   }, []);
 
   const searchCandidates = () => {
-    if (searchJobRoleQuery || searchLocationQuery || shouldGetSortList) {
+    if (searchJobRoleQuery || searchLocationQuery) {
       let params = new URLSearchParams();
       if (searchJobRoleQuery) params.append("job_role", searchJobRoleQuery);
       if (searchLocationQuery) params.append("location", searchLocationQuery);
