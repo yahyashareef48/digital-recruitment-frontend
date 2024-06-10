@@ -3,12 +3,15 @@ import { cn } from "../../utils/cn.js";
 import { IconBrandFacebook, IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { FloatingNav } from "../components/ui/floating-navbar.js";
 import { navItems } from "../../data/navItems.js";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../components/UserContext.js";
 
 export default function Login() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
+  const userData = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   return (
     <main>

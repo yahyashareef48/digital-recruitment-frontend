@@ -1,14 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "../../../utils/cn.js";
 import Link from "next/link";
 import Image from "next/image.js";
+import { UserContext, logoutUser } from "../UserContext.js";
 
 export const FloatingNav = ({ navItems, className, navVisible = false }) => {
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
+
+  const { user, updateUserData } = useContext(UserContext);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
@@ -30,6 +33,25 @@ export const FloatingNav = ({ navItems, className, navVisible = false }) => {
     }
   });
 
+  const LogInOrOut = () =>
+    user.loggedIn ? (
+      <button
+        onClick={() => logoutUser(updateUserData)}
+        className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
+      >
+        <span>Logout</span>
+        <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+      </button>
+    ) : (
+      <Link
+        href="/login"
+        className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
+      >
+        <span>Login</span>
+        <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+      </Link>
+    );
+
   return navVisible ? (
     <div
       className={cn(
@@ -50,13 +72,8 @@ export const FloatingNav = ({ navItems, className, navVisible = false }) => {
           <span className="hidden sm:block text-sm">{navItem.name}</span>
         </Link>
       ))}
-      <Link
-        href="/login"
-        className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
-      >
-        <span>Login</span>
-        <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-      </Link>
+
+      <LogInOrOut />
     </div>
   ) : (
     <AnimatePresence mode="wait">
@@ -90,13 +107,8 @@ export const FloatingNav = ({ navItems, className, navVisible = false }) => {
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <Link
-          href="/login"
-          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full"
-        >
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </Link>
+
+        <LogInOrOut />
       </motion.div>
     </AnimatePresence>
   );
