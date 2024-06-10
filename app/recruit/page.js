@@ -42,21 +42,39 @@ export default function Recruit() {
     }
   };
 
-  const getShortListedCandidates = () => {};
+  const getShortListedCandidates = () => {
+    if (user.loggedIn) {
+      fetch(process.env.NEXT_PUBLIC_BACKEND_URL + `/get_short_list?user_id=${user.id}`, {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data === "Not authorized") {
+            alert("please login");
+            window.location.href = "/login";
+          } else {
+            setCandidatesData(data);
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("please login");
+      window.location.href = "/login";
+    }
+  };
 
   const shortListCandidate = async (candidate_id) => {
     setIsShortListing(true);
 
     if (user.loggedIn) {
       await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_short_list?candidate_id=${candidate_id}&user_id=${user.id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/add_short_list?candidate_id=${candidate_id}&user_id=${user.id}`,
         {
           credentials: "include",
         }
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data !== "Not authorized" && data.message === "Update successful") {
             setCandidatesData((prevState) =>
               prevState.map((item) =>
@@ -184,7 +202,6 @@ export default function Recruit() {
             <button
               class="bg-[rgb(27,29,30)] px-6 py-3 rounded-lg w-full"
               onClick={getShortListedCandidates}
-              type="submit"
             >
               Get Sort Listed Candidates
             </button>
